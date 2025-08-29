@@ -2,7 +2,6 @@ package clients;
 
 
 import base.RequestSpecFactory;
-import config.ApiConfig;
 import io.restassured.*;
 import io.restassured.response.Response;
 import modules.LoginReq;
@@ -14,9 +13,9 @@ public class UserClient {
     private static final Logger logger = LogManager.getLogger(UserClient.class.getName());
 
     /**
-     * GET user list by page
+     * @param page
+     * @return
      */
-
     public static Response GET_USER_LIST_BY_PAGE(int page) {
         logger.info("GET user list by [{}]", page);
         Response response = RestAssured.given().spec(RequestSpecFactory.getRequestSpecification()).when().
@@ -26,7 +25,8 @@ public class UserClient {
     }
 
     /**
-     * GET user byID
+     * @param id
+     * @return
      */
     public static Response GET_USER_BY_ID(int id) {
         logger.info("GET a single user by id");
@@ -37,9 +37,9 @@ public class UserClient {
     }
 
     /**
-     * POST ==> Login request
+     * @param loginReq
+     * @return
      */
-
     public static Response LOGIN(LoginReq loginReq) {
         logger.info("[POST] perform login");
         Response response = RestAssured.given().
@@ -48,7 +48,7 @@ public class UserClient {
     }
 
     /**
-     * GET user list
+     * @return
      */
     public static Response GET_USERS() {
         logger.info("GET user list");
@@ -58,7 +58,8 @@ public class UserClient {
     }
 
     /**
-     * POST new user
+     * @param user
+     * @return
      */
     public static Response NEW_USER(User user) {
         logger.info("POST a user");

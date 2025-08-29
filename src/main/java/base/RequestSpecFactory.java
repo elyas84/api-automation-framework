@@ -7,10 +7,14 @@ import io.restassured.specification.RequestSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+
 public class RequestSpecFactory {
     private static final Logger logger = LogManager.getLogger(RequestSpecFactory.class.getName());
     private static RequestSpecification requestSpec;
 
+    /**
+     * @return
+     */
     public static RequestSpecification getRequestSpecification() {
         logger.info("Prepare request spec [{}] [{}] provided.", ApiConfig.BASE_URI, ApiConfig.API_KEY);
 

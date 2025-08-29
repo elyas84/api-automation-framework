@@ -11,7 +11,9 @@ import java.util.Date;
 public class ExtentManager {
     public static final ExtentReports extentReports = new ExtentReports();
 
-
+    /**
+     * @return
+     */
     public synchronized static ExtentReports createExtentReports() {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_hhmmss");
