@@ -54,7 +54,7 @@ How to Run Tests
    • Execute a suite using TestNG XML file (e.g., apiSmoke.xml).
 
 ```
- mvn clean test -DconfigFile=config.properties -DsuiteXmlFile=apiSmoke.xml``
+ mvn clean test -DconfigFile=config.properties -DsuiteXmlFile=apiSmoke.xml
 ```
 
 Reports
