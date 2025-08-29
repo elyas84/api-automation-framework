@@ -13,17 +13,18 @@ public class AuthUtil {
     private static String TOKEN;
 
     /**
-     * perform login and retrieve TOKEN
+     * @param validCred
+     * @return
      */
-    public static String getTOKEN() {
-        logger.info("Login and get the token");
-        LoginReq loginReq = new LoginReq(ConfigReader.get("email"), ConfigReader.get("password"));
-        Response response = UserClient.LOGIN(loginReq);
-        LoginRes loginRes = response.as(LoginRes.class);
-        if (loginRes.getToken() == null) {
-            throw new RuntimeException(loginRes.getError());
-        } else {
+    public static String getTOKEN(boolean validCred) {
+        logger.info("Get the token");
+        if (validCred) {
+            LoginReq loginReq = new LoginReq(ConfigReader.get("email"), ConfigReader.get("password"));
+            Response response = UserClient.LOGIN(loginReq);
+            LoginRes loginRes = response.as(LoginRes.class);
             TOKEN = loginRes.getToken();
+        } else {
+            return null;
         }
         return TOKEN;
     }

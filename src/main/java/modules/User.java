@@ -3,19 +3,11 @@ package modules;
 
 public class User {
 
-    /**
-     * {
-     * "id": 1,
-     * "email": "george.bluth@reqres.in",
-     * "first_name": "George",
-     * "last_name": "Bluth",
-     * "avatar": "https://reqres.in/img/faces/1-image.jpg"
-     * },
-     */
     private String email;
     private String first_name;
     private String last_name;
     private String avatar;
+    private String job;
 
     public String getEmail() {
         return email;
@@ -49,8 +41,20 @@ public class User {
         this.first_name = first_name;
     }
 
-    public User() {
+    public String getJob() {
+        return job;
+    }
 
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public User(String email, String avatar, String last_name, String first_name, String job) {
+        this.email = email;
+        this.avatar = avatar;
+        this.last_name = last_name;
+        this.first_name = first_name;
+        this.job = job;
     }
 }
 

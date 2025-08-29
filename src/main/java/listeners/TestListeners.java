@@ -1,9 +1,12 @@
 package listeners;
 
+import clients.UserClient;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
+import config.ConfigReader;
 import extentReport.ExtentManager;
+import modules.LoginReq;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.ITestContext;
@@ -55,6 +58,7 @@ public class TestListeners implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         result.getStatus();
+        getTest().fail(result.getThrowable());
         getTest().log(Status.FAIL, MarkupHelper.createLabel(result.getName() + "FAILED", ExtentColor.RED));
     }
 }

@@ -6,7 +6,7 @@
     </listeners>
     <test name="smoke testing">
         <packages>
-            <package name="tests" />
+            <package name="tests"/>
         </packages>
     </test>
 </suite>
